@@ -7,7 +7,7 @@ import surround_view.param_settings as settings
 
 
 yamls_dir = os.path.join(os.getcwd(), "yaml")
-camera_ids = [0, 12, 8, 4]
+camera_ids = [0, 4, 8, 6]
 flip_methods = [0, 0, 2, 2]
 names = settings.camera_names
 cameras_files = [os.path.join(yamls_dir, name + ".yaml") for name in names]
@@ -36,7 +36,7 @@ def main():
     birdview.load_weights_and_masks("./weights.png", "./masks.png")
     birdview.start()
     while True:
-        img = cv2.resize(birdview.get(), (600, 800))
+        img = cv2.resize(birdview.get(), (1200, 1600))
         cv2.imshow("birdview", img)
         key = cv2.waitKey(1) & 0xFF
         if key == ord("q"):
